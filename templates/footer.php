@@ -1,10 +1,11 @@
-</div>
-</div>
-</div>
+</div> <!-- container-fluid -->
+</div> <!-- content -->
+</div> <!-- content-wrapper -->
+</div> <!-- wrapper -->
 
-<script src="/admin_template/vendor/jquery/jquery.min.js"></script>
-<script src="/admin_template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/admin_template/js/sb-admin-2.min.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/sb-admin-2.min.js"></script>
 
 </body>
 </html>
