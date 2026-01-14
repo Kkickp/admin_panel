@@ -1,4 +1,4 @@
-<?php include "../templates/header.php"; ?>
+<?php include "../config/db.php"; include "../templates/header.php"; ?>
 
 <h1 class="h3 mb-4">Kelola Konsumen</h1>
 
