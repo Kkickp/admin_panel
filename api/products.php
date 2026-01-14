@@ -10,7 +10,7 @@ $baseUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTT
 while ($row = $q->fetch_assoc()) {
 
     if (!empty($row['image'])) {
-        $row['image'] = $baseUrl . "/uploads/" . $row['image'];
+        $row['image'] = $baseUrl . "https://adminpanel-production-2c95.up.railway.app/uploads/" . $row['image'];
     } else {
         $row['image'] = "";
     }
