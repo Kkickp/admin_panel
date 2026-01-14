@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Admin Blangkis</title>
 
-<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link href="../css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
