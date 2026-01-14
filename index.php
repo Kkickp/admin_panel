@@ -1,2 +1,4 @@
 <?php
-echo "Blangkis API running";
+header("Location: pages/dashboard.php");
+exit;
+?>
