@@ -1,3 +1,5 @@
+<?php include "../config/db.php"; ?>
+<?php include "../templates/header.php"; ?>
 <?php
 ob_start();
 include "../config/db.php";
