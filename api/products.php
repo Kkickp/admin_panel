@@ -1,22 +1,21 @@
 <?php
 include "db.php";
 
-$q = $conn->query("SELECT * FROM produk ORDER BY id DESC");
+$q = $conn->query("SELECT * FROM produk");
 
 $data = [];
 
-$baseUrl = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
-
 while ($row = $q->fetch_assoc()) {
 
-    if (!empty($row['image'])) {
-        $row['image'] = $baseUrl . "https://adminpanel-production-2c95.up.railway.app/uploads/" . $row['image'];
-    } else {
-        $row['image'] = "";
-    }
-
-    $data[] = $row;
+    $data[] = [
+        "id" => $row["id"],
+        "name" => $row["nama"],
+        "description" => $row["deskripsi"],
+        "price" => (int)$row["harga"],
+        "image" => $row["image"] 
+            ? "https://adminpanel-production-2c95.up.railway.app/uploads/".$row["image"]
+            : ""
+    ];
 }
 
-header('Content-Type: application/json');
 echo json_encode($data);
