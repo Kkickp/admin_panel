@@ -1,12 +1,60 @@
 <?php include "../config/db.php"; include "../templates/header.php"; ?>
-<div class="container-fluid">
-  <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
-  Selamat datang di Admin Panel
+    <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+
+<div class="row">
+
+<div class="col-md-3">
+<div class="card shadow mb-4">
+<div class="card-body">
+Produk<br>
+<b><?= $conn->query("SELECT COUNT(*) c FROM produk")->fetch_assoc()['c']; ?></b>
 </div>
-<ul class="list-group">
-<li class="list-group-item"><a href="produk.php">Kelola Produk</a></li>
-<li class="list-group-item"><a href="konsumen.php">Kelola Konsumen</a></li>
-<li class="list-group-item"><a href="laporan_global.php">Laporan Global</a></li>
-<li class="list-group-item"><a href="laporan_periodik.php">Laporan Periodik</a></li>
-</ul>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow mb-4">
+<div class="card-body">
+Konsumen<br>
+<b><?= $conn->query("SELECT COUNT(*) c FROM konsumen")->fetch_assoc()['c']; ?></b>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow mb-4">
+<div class="card-body">
+Transaksi<br>
+<b><?= $conn->query("SELECT COUNT(*) c FROM jual")->fetch_assoc()['c']; ?></b>
+</div>
+</div>
+</div>
+<div class="card shadow mb-4">
+<div class="card-body">
+Produk<br>
+<b><?= $conn->query("SELECT COUNT(*) c FROM produk")->fetch_assoc()['c']; ?></b>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow mb-4">
+<div class="card-body">
+Konsumen<br>
+<b><?= $conn->query("SELECT COUNT(*) c FROM konsumen")->fetch_assoc()['c']; ?></b>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow mb-4">
+<div class="card-body">
+Transaksi<br>
+<b><?= $conn->query("SELECT COUNT(*) c FROM jual")->fetch_assoc()['c']; ?></b>
+</div>
+</div>
+</div>
+
+</div>
+
 <?php include "../templates/footer.php"; ?>

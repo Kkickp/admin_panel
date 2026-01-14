@@ -1,17 +1,45 @@
-<form>
-<input type="date" name="d1">
-<input type="date" name="d2">
-<button>Filter</button>
+<?php include "../config/db.php"; include "../templates/header.php"; ?>
+
+<h1 class="h3 mb-4">Laporan Periodik</h1>
+
+<form method="get" class="row g-2 mb-3">
+<input type="date" name="dari" class="form-control col">
+<input type="date" name="sampai" class="form-control col">
+<button class="btn btn-primary col">Filter</button>
 </form>
+
+<table class="table table-bordered shadow">
+<tr><th>ID</th><th>Konsumen</th><th>Total</th><th>Tanggal</th></tr>
+
 <?php
-include "../config/db.php";
-if(isset($_GET['d1'])){
-$d1=$_GET['d1']; $d2=$_GET['d2'];
-$q=$conn->query("SELECT * FROM jual WHERE tanggal BETWEEN '$d1' AND '$d2'");
-while($r=$q->fetch_assoc()){
-echo "$r[tanggal] - $r[total]<br>";
+$where="";
+
+if(isset($_GET['dari'])){
+$dari=$_GET['dari'];
+$sampai=$_GET['sampai'];
+$where="WHERE DATE(tanggal) BETWEEN '$dari' AND '$sampai'";
 }
-echo "<a href='../export/excel.php?type=periodic&d1=$d1&d2=$d2'>Excel</a> | ";
-echo "<a href='../export/pdf.php?type=periodic&d1=$d1&d2=$d2'>PDF</a>";
+
+$data=$conn->query("
+SELECT jual.*, konsumen.nama
+FROM jual
+LEFT JOIN konsumen ON jual.id_konsumen=konsumen.id
+$where
+ORDER BY jual.id DESC
+");
+
+while($r=$data->fetch_assoc()){
+echo "
+<tr>
+<td>$r[id]</td>
+<td>$r[nama]</td>
+<td>Rp $r[total]</td>
+<td>$r[tanggal]</td>
+</tr>
+";
 }
 ?>
+
+</table>
+
+<?php include "../templates/footer.php"; ?>
