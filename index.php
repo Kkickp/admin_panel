@@ -1,1 +1,2 @@
-<?php include "config/db.php"; if(!isset($_SESSION['admin'])) header("Location: auth/login.php"); header("Location: pages/dashboard.php"); ?>
+<?php
+echo "Blangkis API running";
