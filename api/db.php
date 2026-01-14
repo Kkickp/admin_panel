@@ -3,7 +3,7 @@
 $host = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com";
 $user = "2YwRN5U9FGjWBPP.root";
 $pass = "bHhYbhEX4G1IpYKn";
-$db   = "test";
+$db   = "blangkis_admin";
 $port = 4000;
 
 $mysqli = mysqli_init();

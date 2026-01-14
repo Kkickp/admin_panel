@@ -3,7 +3,7 @@
 $host = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com";
 $user = "2YwRN5U9FGjWBPP.root";
 $pass = "bHhYbhEX4G1IpYKn";
-$db   = "test";
+$db   = "blangkis_admin";
 $port = 4000;
 
 $ssl_ca = __DIR__ . "/../certs/ca.pem";
