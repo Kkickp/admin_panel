@@ -6,10 +6,34 @@ $pass = "bHhYbhEX4G1IpYKn";
 $db   = "test";
 $port = 4000;
 
-$conn = new mysqli($host, $user, $pass, $db, $port);
+$mysqli = mysqli_init();
 
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+/* Wajib SSL */
+mysqli_ssl_set(
+    $mysqli,
+    NULL,
+    NULL,
+    __DIR__ . "/../certs/ca.pem",
+    NULL,
+    NULL
+);
+
+mysqli_real_connect(
+    $mysqli,
+    $host,
+    $user,
+    $pass,
+    $db,
+    $port,
+    NULL,
+    MYSQLI_CLIENT_SSL
+);
+
+if (mysqli_connect_errno()) {
+    die("SSL DB connection failed: " . mysqli_connect_error());
 }
 
-$conn->set_charset("utf8mb4");
+$mysqli->set_charset("utf8mb4");
+
+$conn = $mysqli;
+?>
